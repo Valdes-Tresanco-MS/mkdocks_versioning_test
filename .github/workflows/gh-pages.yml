@@ -47,7 +47,7 @@ jobs:
 
   updatedoc:
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/master' }}
+    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev'
     steps:
       - name: Update doc
         uses: actions/checkout@v2
@@ -71,34 +71,34 @@ jobs:
 #        env:
 #          GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
         run: |
-          mike deploy --push --rebase --update-aliases latest
-
-  devdoc:
-    runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/dev' }}
-    steps:
-      - name: Update dev doc
-        uses: actions/checkout@v2
-        with:
-          # Number of commits to fetch. 0 indicates all history. For mkdocs-git-revision-date-localized-plugin
-          # Default: 1
-          fetch-depth: 0
-      - name: Set up Python runtime
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-      - name: Install Python dependencies
-        run: |
-          pip install mike
-          pip install mkdocs-material
-      - name: Setup git config
-        run: |
-          git config user.name test
-          git config user.email bot@bot.com
-      - name: Deploy documentation
-#        env:
-#          GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
-        run: |
           mike deploy --push --rebase --update-aliases dev
+
+#  devdoc:
+#    runs-on: ubuntu-latest
+#    if: ${{ github.ref == 'refs/heads/dev' }}
+#    steps:
+#      - name: Update dev doc
+#        uses: actions/checkout@v2
+#        with:
+#          # Number of commits to fetch. 0 indicates all history. For mkdocs-git-revision-date-localized-plugin
+#          # Default: 1
+#          fetch-depth: 0
+#      - name: Set up Python runtime
+#        uses: actions/setup-python@v2
+#        with:
+#          python-version: ${{ env.PYTHON_VERSION }}
+#      - name: Install Python dependencies
+#        run: |
+#          pip install mike
+#          pip install mkdocs-material
+#      - name: Setup git config
+#        run: |
+#          git config user.name test
+#          git config user.email bot@bot.com
+#      - name: Deploy documentation
+##        env:
+##          GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
+#        run: |
+#          mike deploy --push --rebase --update-aliases dev
 
   
