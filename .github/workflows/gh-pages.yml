@@ -20,6 +20,7 @@ jobs:
            # Number of commits to fetch. 0 indicates all history. For mkdocs-git-revision-date-localized-plugin
            # Default: 1
            fetch-depth: 0
+        echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
 
       - name: Set up Python runtime
         uses: actions/setup-python@v2
@@ -27,18 +28,16 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
 
       - name: Set release notes tag
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      - name: Test
         run: |
-            export RELEASE_TAG_VERSION=${{ github.event.release.tag_name }}
-            echo "RELEASE_TAG_VERSION=${RELEASE_TAG_VERSION:1}" >> $GITHUB_ENV
+            echo $RELEASE_VERSION
+            echo ${{ env.RELEASE_VERSION }}
 
       - name: Install Python dependencies
         run: |
           pip install mike
           pip install mkdocs-material
-      - name: Setup doc deploy
-        run: |
-            git config --global user.name Valdes-Tresanco-MS deploy
-            git config --global user.email docs@gmx_mmpbsa
       - name: Deploy documentation
 #        env:
 #          GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
