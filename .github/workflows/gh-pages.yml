@@ -35,7 +35,10 @@ jobs:
         run: |
           pip install mike
           pip install mkdocs-material
-
+      - name: Setup doc deploy
+        run: |
+            git config --global user.name Valdes-Tresanco-MS deploy
+            git config --global user.email docs@gmx_mmpbsa
       - name: Deploy documentation
 #        env:
 #          GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
