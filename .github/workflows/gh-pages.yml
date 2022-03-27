@@ -44,6 +44,7 @@ jobs:
           mike deploy --push --update-aliases ${RELEASE_TAG_VERSION} latest
           mike set-default --push --rebase latest
 
+
   updatedoc:
     runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/master' }}
@@ -70,7 +71,8 @@ jobs:
 #        env:
 #          GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
         run: |
-          mike deploy --push --rebase --update-aliases dev
+          mike deploy --push --rebase --update-aliases latest
+
   devdoc:
     runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/dev' }}
