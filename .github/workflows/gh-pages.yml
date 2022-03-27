@@ -1,18 +1,3 @@
-
-      - uses: actions/setup-python@v2
-        with:
-          python-version: 3.x
-      - run: pip install mike
-      - run: pip install mkdocs-material
-      - run: pip install mkdocs-render-swagger-plugin
-      - run: pip install git+https://github.com/it-novum/mkdocs-featherlight.git
-      - name: setup doc deploy
-        run: |
-          git config --global user.name FuseML
-          git config --global user.email docs@fuseml
-      - run: mike deploy --push --rebase --update-aliases dev
-
-
 name: documentation
 on:
   workflow_dispatch:
