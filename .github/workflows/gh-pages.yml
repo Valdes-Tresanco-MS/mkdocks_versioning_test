@@ -40,7 +40,7 @@ jobs:
         #          GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
         run: |
           #            mike deploy --push --rebase --update-aliases dev
-          mike deploy --push --update-aliases ${RELEASE_TAG_VERSION} latest
+          mike deploy --push --update-aliases ${RELEASE_TAG_VERSION}
 
 
   updatedoc:
@@ -69,8 +69,8 @@ jobs:
 #        env:
 #          GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
         run: |
-          mike deploy --push --rebase --update-aliases dev
-          mike set-default --push --rebase dev
+          mike deploy --push --rebase --update-aliases dev latest
+          mike set-default --push --rebase latest
 
 #  devdoc:
 #    runs-on: ubuntu-latest
