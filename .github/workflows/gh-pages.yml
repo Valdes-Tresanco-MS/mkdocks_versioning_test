@@ -29,6 +29,10 @@ jobs:
         run: |
           pip install mike
           pip install mkdocs-material
+      - name: Setup git config
+        run: |
+          git config user.name test
+          git config user.email bot@bot.com
       - name: Deploy documentation
 #        env:
 #          GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
@@ -53,12 +57,16 @@ jobs:
         run: |
           pip install mike
           pip install mkdocs-material
+      - name: Setup git config
+        run: |
+          git config user.name test
+          git config user.email bot@bot.com
       - name: Deploy documentation
 #        env:
 #          GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
         run: |
           mike deploy --push --rebase --update-aliases dev
-#
+
 #  tagdoc:
 #    runs-on: ubuntu-latest
 #    if: ${{ github.event_name == 'release' }}
@@ -81,6 +89,10 @@ jobs:
 #        run: |
 #          pip install mike
 #          pip install mkdocs-material
+#      - name: Setup git config
+#        run: |
+#          git config user.name test
+#          git config user.email bot@bot.com
 #      - name: Deploy documentation
 ##        env:
 ##          GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
