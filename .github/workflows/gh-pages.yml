@@ -2,7 +2,6 @@ name: documentation
 on:
   push:
     branches:
-      - dev
       - master
   release:
     types: [ published ]
@@ -47,7 +46,7 @@ jobs:
 
   updatedoc:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev'
+    if: github.ref == 'refs/heads/master'
     steps:
       - name: Update doc
         uses: actions/checkout@v2
