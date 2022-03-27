@@ -27,11 +27,19 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
 
       - name: Set release notes tag
-        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/:v:4}" >> $GITHUB_ENV
+#      - name: Create tag artifact
+#        env:
+#          tag: echo "${{ github.ref_name : }}
+#        with:
+#          name: ${{github.ref_name}}
+#          path: Release
+
       - name: Test
         run: |
             echo $RELEASE_VERSION
             echo ${{ env.RELEASE_VERSION }}
+#            echo ${{ env.path }}
 
       - name: Install Python dependencies
         run: |
@@ -42,5 +50,5 @@ jobs:
 #          GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
         run: |
           mike deploy --push --rebase --update-aliases dev
-          mike deploy --push --update-aliases ${RELEASE_TAG_VERSION} latest
+          mike deploy --push --update-aliases ${{ env.RELEASE_VERSION }} latest
           
