@@ -80,14 +80,14 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ env.PYTHON_VERSION }}
-      - name: Set release notes tag
-        run: |
-          export RELEASE_TAG_VERSION=${{ github.event.release.tag_name }}
-          echo "RELEASE_TAG_VERSION=${RELEASE_TAG_VERSION:v:4}" >> $GITHUB_ENV
       - name: Install Python dependencies
         run: |
           pip install mike
           pip install mkdocs-material
+      - name: Set release notes tag
+        run: |
+          export RELEASE_TAG_VERSION=${{ github.event.release.tag_name }}
+          echo "RELEASE_TAG_VERSION=${RELEASE_TAG_VERSION:v:4}" >> $GITHUB_ENV
 #      - name: Setup git config
 #        run: |
 #          git config user.name test
