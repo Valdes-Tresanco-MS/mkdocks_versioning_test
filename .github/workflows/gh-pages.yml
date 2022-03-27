@@ -70,9 +70,7 @@ jobs:
 #        env:
 #          GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
         run: |
-          mike deploy --push --rebase latest
-          mike set-default --push --rebase latest
-
+          mike deploy --push --rebase --update-aliases latest
   devdoc:
     runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/dev' }}
