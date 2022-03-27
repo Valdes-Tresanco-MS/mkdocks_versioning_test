@@ -20,12 +20,12 @@
 
 # Project information
 site_name: My Docs
-site_url:
-site_author:
+site_url: https://valdes-tresanco-ms.github.io/mkdocs_versioning_test
+site_author: Mario
 
 # Repository
-repo_name:
-repo_url:
+repo_name: Valdes-Tresanco-MS/mkdocks_versioning_test
+repo_url: https://github.com/Valdes-Tresanco-MS/mkdocks_versioning_test
 edit_uri: ""
 
 # Configuration

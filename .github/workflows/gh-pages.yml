@@ -1,0 +1,60 @@
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+      - run: pip install mike
+      - run: pip install mkdocs-material
+      - run: pip install mkdocs-render-swagger-plugin
+      - run: pip install git+https://github.com/it-novum/mkdocs-featherlight.git
+      - name: setup doc deploy
+        run: |
+          git config --global user.name FuseML
+          git config --global user.email docs@fuseml
+      - run: mike deploy --push --rebase --update-aliases dev
+
+
+name: documentation
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - dev
+
+env:
+  PYTHON_VERSION: 3.x
+
+jobs:
+  documentation:
+    name: Build documentation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+           # Number of commits to fetch. 0 indicates all history. For mkdocs-git-revision-date-localized-plugin
+           # Default: 1
+           fetch-depth: 0
+
+      - name: Set up Python runtime
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Set release notes tag
+        run: |
+            export RELEASE_TAG_VERSION=${{ github.event.release.tag_name }}
+            echo "RELEASE_TAG_VERSION=${RELEASE_TAG_VERSION:1}" >> $GITHUB_ENV
+
+      - name: Install Python dependencies
+        run: |
+          pip install mike
+          pip install mkdocs-material
+
+      - name: Deploy documentation
+#        env:
+#          GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
+        run: |
+          mike deploy --push --rebase --update-aliases dev
+          mike deploy --push --update-aliases ${RELEASE_TAG_VERSION} latest
+          
