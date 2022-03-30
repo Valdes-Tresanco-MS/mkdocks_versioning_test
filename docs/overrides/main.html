@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block outdated %}
+  You're not viewing the latest version.
+  <a href="{{ '../' ~ base_url }}">
+    <strong>Click here to go to latest.</strong>
+  </a>
+{% endblock %}
+{% block extrahead %}
+  <link rel="stylesheet" href="{{ 'overrides/stylesheets/global.css' | url }}">
+{% endblock %}
+{% block announce %}
+  <span class="title">NEWS</span>
+  <p class="moving-text">
+      <a href="https://twitter.com/test" style="color: white; padding: 0; margin: 0;">
+        For updates follow <strong>test</strong> on
+        <span class="twemoji twitter">
+          {% include ".icons/fontawesome/brands/twitter.svg" %}
+        </span>
+        <strong>Twitter</strong>
+        </a>
+        <a href="https://twitter.com/test" style="text-decoration: none !important; padding: 0; margin: 0;">
+        For updates follow <strong>test</strong> on
+        <span class="twemoji twitter">
+          {% include ".icons/fontawesome/brands/twitter.svg" %}
+        </span>
+        <strong>Twitter</strong>
+        </a>
+      <span class="dot">#</span>
+
+  </p>
+<!--  <p class="moving-text">This is made with CSS</p>-->
+
+    <!-- The styles -->
+
+
+<!--  <a href="https://twitter.com/squidfunk">-->
+<!--    For updates follow <strong>@squidfunk</strong> on-->
+<!--    <span class="twemoji twitter">-->
+<!--      {% include ".icons/fontawesome/brands/twitter.svg" %}-->
+<!--    </span>-->
+<!--    <strong>Twitter</strong>-->
+<!--  </a>-->
+{% endblock %}
