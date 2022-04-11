@@ -25,8 +25,7 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
       - name: Install Python dependencies
         run: |
-          pip install mike
-          pip install mkdocs-material
+          pip install -r ./docs/requirements.txt
       - name: Set release notes tag
         run: |
           export RELEASE_TAG_VERSION=${{ github.event.release.tag_name }}
