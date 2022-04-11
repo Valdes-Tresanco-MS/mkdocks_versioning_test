@@ -50,3 +50,10 @@ theme:
 extra:
   version:
     provider: mike
+
+
+nav:
+  - Home: index.md
+  - Bar: bar.md
+  - News: news.md
+  - Foo: foo.md

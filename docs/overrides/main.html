@@ -8,37 +8,26 @@
 {% endblock %}
 {% block extrahead %}
   <link rel="stylesheet" href="{{ 'overrides/stylesheets/global.css' | url }}">
+
+
 {% endblock %}
 {% block announce %}
+<div class="" >
   <span class="title">NEWS</span>
-  <p class="moving-text">
-      <a href="https://twitter.com/test" style="color: white; padding: 0; margin: 0;">
-        For updates follow <strong>test</strong> on
-        <span class="twemoji twitter">
-          {% include ".icons/fontawesome/brands/twitter.svg" %}
-        </span>
-        <strong>Twitter</strong>
-        </a>
-        <a href="https://twitter.com/test" style="text-decoration: none !important; padding: 0; margin: 0;">
-        For updates follow <strong>test</strong> on
-        <span class="twemoji twitter">
-          {% include ".icons/fontawesome/brands/twitter.svg" %}
-        </span>
-        <strong>Twitter</strong>
-        </a>
-      <span class="dot">#</span>
+    <div id="demoB">
 
-  </p>
-<!--  <p class="moving-text">This is made with CSS</p>-->
-
-    <!-- The styles -->
-
-
-<!--  <a href="https://twitter.com/squidfunk">-->
-<!--    For updates follow <strong>@squidfunk</strong> on-->
-<!--    <span class="twemoji twitter">-->
-<!--      {% include ".icons/fontawesome/brands/twitter.svg" %}-->
-<!--    </span>-->
-<!--    <strong>Twitter</strong>-->
-<!--  </a>-->
+    </div>
+</div>
+<script type="text/javascript" src="{{ 'news.js' | url }}"></script>
+<script type="text/javascript">
+    const mydata = JSON.parse(data);
+    let list = "<p class='moving-text'>";
+    mydata[0].news.forEach((num1, index) => {
+        const num2 = mydata[0].urls[index];
+        list += `<span class="bullet">&bull;</span>`
+        list += `<a href=${num2}>${num1}</a>`;
+    });
+    list += "</p>";
+    document.getElementById("demoB").innerHTML = list;
+</script>
 {% endblock %}
