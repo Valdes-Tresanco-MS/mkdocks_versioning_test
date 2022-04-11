@@ -58,8 +58,7 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
       - name: Install Python dependencies
         run: |
-          pip install mike
-          pip install mkdocs-material
+          pip install -r ./docs/requirements.txt
       - name: Setup git config
         run: |
           git config user.name test
