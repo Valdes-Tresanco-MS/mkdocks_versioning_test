@@ -1,4 +1,4 @@
-name: documentation
+name: Documentation from version release
 on:
   release:
     types: [ published ]

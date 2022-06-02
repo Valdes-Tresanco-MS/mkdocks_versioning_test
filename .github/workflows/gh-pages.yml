@@ -1,4 +1,4 @@
-name: documentation
+name: Documentation from Master (Develop) Branch
 on:
   push:
     branches:
