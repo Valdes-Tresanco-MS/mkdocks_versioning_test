@@ -122,7 +122,7 @@
 /* media query to enable animation for only those who want it */
 @media (prefers-reduced-motion: no-preference) {
     .moving-text{
-        animation: marquee 15s linear infinite;
+        animation: marquee 40s linear infinite;
     }
 }
 

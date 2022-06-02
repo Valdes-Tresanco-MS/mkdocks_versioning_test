@@ -14,19 +14,23 @@
 {% endblock %}
 {% block announce %}
   <span class="title">NEWS</span>
-  <div id="demoB">
+  <div id="news-section">
 
   </div>
-<script type="text/javascript" src="{{ 'news.js' | url }}"></script>
-<script type="text/javascript">
-    const mydata = JSON.parse(data);
-    let list = "<p class='moving-text'>";
-    mydata[0].news.forEach((num1, index) => {
-        const num2 = mydata[0].urls[index];
-        list += `<span class="bullet">&bull;</span>`
-        list += `<a href=${num2}>${num1}</a>`;
-    });
-    list += "</p>";
-    document.getElementById("demoB").innerHTML = list;
-</script>
+  <script type="text/javascript">
+    function loadNews(file) {
+      fetch(file)
+        .then(response => response.json())
+        .then(data => {
+            let list = "<p class='moving-text'>"
+            data.forEach((item) => {
+                list += `<span class="bullet">&bull;</span>`
+                list += `<a href=${item.url}>${item.new}</a>`
+            })
+            list += "</p>";
+            document.getElementById("news-section").innerHTML = list;
+        })
+    }
+    loadNews("{{ 'news.json' | url }}")
+  </script>
 {% endblock %}
