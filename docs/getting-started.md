@@ -13,7 +13,21 @@ title: Getting started
 
 ## gmx_MMPBSA v1.5.2 is out 😀!
 
+<div class="termy">
+
+```console
+$ pip install typer
+---> 100%
+Successfully installed typer
+```
+
+</div>
+
+
 Check [changelog](changelog.md##gmx_mmpbsa-v152-03232022) to see what's new in gmx_MMPBSA v1.5.2.
+
+
+
 
 ## [Help needed for gmx_MMPBSA! To the content creators out there...](#colaboration)
 
@@ -177,3 +191,6 @@ Feel free to contact us through our google group (https://groups.google.com/g/gm
 - To all researchers that help improving gmx_MMPBSA with comments, feedback, and bug reports.
 
   [11]: https://www.jetbrains.com/?from=gmx_MMPBSA
+
+
+

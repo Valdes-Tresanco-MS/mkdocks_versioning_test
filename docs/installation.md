@@ -33,7 +33,45 @@ errors are more frequent.
 !!! info "Installation"
     === "conda environment"
         === "`pip`"    
-            Rolling release and development version        
+            Rolling release and development version   
+            
+            <div class="termy">
+
+            ```console
+            // Run your application
+            $ python main.py
+            
+            // You get a nice error, you are missing NAME
+            Usage: main.py [OPTIONS] NAME
+            Try "main.py --help" for help.
+            
+            Error: Missing argument 'NAME'.
+            
+            // You get a --help for free
+            $ python main.py --help
+            
+            Usage: main.py [OPTIONS] NAME
+            
+            Arguments:
+              NAME  [required]
+            
+            Options:
+              --install-completion  Install completion for the current shell.
+              --show-completion     Show completion for the current shell, to copy it or customize the installation.
+              --help                Show this message and exit.
+            
+            // When you create a package you get ✨ auto-completion ✨ for free, installed with --install-completion
+            
+            // Now pass the NAME argument
+            $ python main.py Camila
+            
+            Hello Camila
+            
+            // It works! 🎉
+            ```
+                
+            </div>
+
     
             ``` bash 
             conda update conda

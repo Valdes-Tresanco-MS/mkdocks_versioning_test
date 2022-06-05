@@ -238,4 +238,9 @@ nav:
       - Private Policy: private_policy.md
   - Cite gmx_MMPBSA: cite_us.md
 
-
+extra_css:
+  - assets/stylesheets/termynal.css
+  - assets/stylesheets/custom.css
+extra_javascript:
+  - assets/js/termynal.js
+  - assets/js/custom.js
