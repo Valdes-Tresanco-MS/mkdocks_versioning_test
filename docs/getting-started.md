@@ -11,7 +11,7 @@ title: Getting started
 
 [<img src="../assets/TOC.png" height="120%" width="258" align="right"/>]()
 
-## gmx_MMPBSA v1.5.2 is out 😀!
+## gmx_MMPBSA v1.5.7 is out 😀!
 
 <div class="termy">
 
